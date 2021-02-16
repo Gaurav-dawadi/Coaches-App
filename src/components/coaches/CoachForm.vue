@@ -19,15 +19,15 @@
         <div class="form-control">
             <h3>Areas of expertise</h3>
             <div>
-                <input type="checkbox" id="frontend" value="frontend">
+                <input type="checkbox" id="frontend" value="frontend" v-model="areas">
                 <label for="frontend">Frontend Development</label>
             </div>
             <div>
-                <input type="checkbox" id="backend" value="backend">
+                <input type="checkbox" id="backend" value="backend" v-model="areas">
                 <label for="backend">Backend Development</label>
             </div>
             <div>
-                <input type="checkbox" id="career" value="career">
+                <input type="checkbox" id="career" value="career" v-model="areas">
                 <label for="career">Career Advisory</label>
             </div>
         </div>
@@ -38,6 +38,7 @@
 
 <script>
 export default {
+    emits: ['save-data'],
     data(){
         return{
             firstName: '',
@@ -50,14 +51,14 @@ export default {
     },
     methods: {
         submitForm(){
-            const formdata = {
+            const formData = {
                 first: this.firstName,
                 last: this.lastName,
                 des: this.description,
                 rate: this.rate,
                 areas: this.areas  
             }
-            console.log(formdata);
+            this.$emit('save-data', formData)
         }
     }
 }
