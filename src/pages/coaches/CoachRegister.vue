@@ -1,10 +1,24 @@
 <template>
-    <h1>Register Coach</h1>
-    <form>
-        <label>Name:</label>
-        <input type="text">
-
-        <label>Email:</label>
-        <input type="text">
-    </form>
+    <section>
+        <base-card>
+            <h2>Register as a Coach</h2>
+            <coach-form></coach-form>
+        </base-card>
+    </section>
 </template>
+
+
+<script>
+import CoachForm from '../../components/coaches/CoachForm.vue'
+
+export default {
+    components:{
+        CoachForm
+    }
+}
+</script>
+
+
+<style scoped>
+
+</style>
